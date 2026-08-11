@@ -15,7 +15,12 @@ public class FileWork {
         File file = new File(fileName);
         List<String> text;
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(file))) {
-            text = bufferedReader.readAllLines();
+            //text = bufferedReader.readAllLines();
+            text = new ArrayList<>();
+            String line;
+            while ((line = bufferedReader.readLine()) != null) {
+                text.add(line);
+            }
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
